@@ -1,18 +1,19 @@
 <template>
+  <!---->
+    <div class="Board">
+    <div class="Zone-Menu">
+
+    </div>
     <!--Plateau de jeu-->
-     <div class="board-container">
-        <!--Zone de texte-->
-        <!--Zone de Jeu-->
-      <div class="board-row" v-for="(row, rowIndex) in board" :key="rowIndex">
-        <div class="board-cell" v-for="(cell, cellIndex) in row" :key="cellIndex" >
-             <!-- Afficher le pion blanc -->
-        <div v-if="cell === 'w'" class="piece white"></div>
-        <!-- Afficher le pion noir -->
-        <div v-if="cell === 'b'" class="piece black"></div>
-            
-        </div>
+    <div class="Zone-Jeu">
+    <div class="board-row" v-for="(row, rowIndex) in board" :key="rowIndex">
+      <div class="board-cell" v-for="(cell, cellIndex) in row" :key="cellIndex" @click="cellClicked(rowIndex, cellIndex)">
+        <div v-if="cell === 'w'" class="piece white" :class="{ selectionner: PionPosition && PionPosition.row === rowIndex && PionPosition.cell === cellIndex }"></div>
+        <div v-if="cell === 'b'" class="piece black" :class="{ selectionner: PionPosition && PionPosition.row === rowIndex && PionPosition.cell === cellIndex }"></div>
       </div>
-      </div>
+    </div>
+  </div>
+  </div>
 
 </template>
   
@@ -24,6 +25,9 @@
       Mpilalao1: '',
       Mpilalao2: '',
       board: [],
+      Pion: '',
+      PionPosition: null,
+      CurrentPlayer: 'w'
       }
     },
   //Cycle de vie hook
@@ -128,14 +132,35 @@
         this.board[4][7] = 'b';
         break;
     }
+  },
+     // Logique des deplacements des pions
+  cellClicked(rowIndex, cellIndex) {
+     // Récupère la cellule cliquée par l'utilisateur.
+    const clickedCell = this.board[rowIndex][cellIndex];
+      // Si la cellule cliquée est vide.
+    if (!clickedCell) {
+      // Déplacer le pion sur la cellule cliquée.
+      if (this.PionPosition) {
+        this.board[rowIndex][cellIndex] = this.Pion;
+        this.board[this.PionPosition.row][this.PionPosition.cell] = '';
+        this.PionPosition = null;
+        // Change le joueur actuel
+        // Si le joueur actuel est "w" (blanc), le changer en "b" (noir) et vice versa
+        this.CurrentPlayer = this.CurrentPlayer === 'w' ? 'b' : 'w';
+      }
+    } else if (clickedCell === this.CurrentPlayer) {
+      // Sélectionner le pion.
+      this.PionPosition = { row: rowIndex, cell: cellIndex }; // Stocke la position du pion sélectionné.
+      this.Pion = clickedCell; // Stocke le type du pion sélectionné.
+    }
+  }
   }
   
     }
-}
 </script>
 
 <style>
-    .board-container {
+  .Zone-Jeu {
   display: flex;
   flex-direction: column;
   justify-content: center;
