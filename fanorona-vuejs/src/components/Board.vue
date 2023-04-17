@@ -3,7 +3,11 @@
       <div class="Board">
         <!---->
       <div class="Zone-Menu1">
+        <router-link to="/" style="color: #a1a0a0; text-decoration: none">
+        Tranon-Kala
+        </router-link>
         <h2>Fanoron-{{ Karazany }}</h2>
+        <h6>Mpilalao 1:</h6>
         <h4>{{ Mpilalao1 }}</h4>
       </div>
       <!--Zone de jeu-->
@@ -19,8 +23,9 @@
         <!---->
     <div class="Zone-Menu2">
       <h4>{{ Mpilalao2 }}</h4>
+      <h6>Mpilalao 2:</h6>
       </div>
-      <button class="btnAverina" type="submit" @click="Reset"></button>
+      <button class="btnAverina" @click="Reset"></button>
     </div>
 </template>
   

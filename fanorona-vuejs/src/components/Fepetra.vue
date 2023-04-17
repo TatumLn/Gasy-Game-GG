@@ -1,6 +1,7 @@
 <template>
     <div class="contenu">
     <div class="titre">
+        <!--Regles du Jeu Fanorona-->
         <h2>
             Fepetran'i Fanorona Malagasy
         </h2>
@@ -12,7 +13,7 @@
         Raha samy misy vaton'ny mpifanandrina ny toerana nihatahana sy ny toerana hatonina, dia misafidy ilay manakisaka na ny eo alohan'ny hisaka no esorina na ny tato ivohony.<br>
         Raha mahaisotra vaton'ny mpifanandrina ny hetsika anankiray dia mbola afaka manohy manisaka ny vatony ihany ny mpilalao fa tsy miova ny anjara. Tsy maintsy ilay vato nahisaka ihany no azo akisaka. Tsy azo atao koa ny miverina amin'ny toerana efa nipetrahan'iny vato iny.<br>
     </p>
-    <router-link to="/" style="color: #a1a0a0; text-decoration: none">Menu</router-link>
+    <router-link to="/" style="color: #a1a0a0; text-decoration: none">Tranon-Kala</router-link>
 </div>
 </template>
   
