@@ -20,10 +20,10 @@
         <div class="Size">
          <!-- Taille du plateau de jeu-->
           <label for="boardSize">Fanorona</label>
-          <select id="boardSize" v-model="boardSize">
+          <select id="boardSize" v-model="Karazany">
             <option value="Telo">Telo 3x3</option>
             <option value="Dimy">Dimy 5x5</option>
-            <option value="Sivy">Sivy 5x9</option>
+            <option value="Tsivy">Sivy 5x9</option>
           </select>
         </div>
         <!--Commencer le jeu-->
@@ -45,7 +45,7 @@
         Mpilalao1: '',
         Mpilalao2: '',
         //Taille du plateau de jeu par defaut
-        boardSize: '',
+        Karazany: '',
       }
     },
     methods: {
@@ -59,7 +59,7 @@
         this.message2 = "Ampidiro iany koa ny anaran'i mpilalao faraharoa"
         alert(this.message2)
         return;
-      }else if(this.boardSize === ''){
+      }else if(this.Karazany === ''){
         this.message3 = "Safidio ny karazana fanorona izay ilalaovanareo azafady!"
         alert(this.message3)
         return;
@@ -70,7 +70,7 @@
         query: {
             Mpilalao1: this.Mpilalao1,
             Mpilalao2: this.Mpilalao2,
-            boardSize: this.boardSize,
+            Karazany: this.Karazany,
         }
         });
 
