@@ -1,2 +1,4 @@
 # Gasy-Game-GG
-Fanorona All in One (VueJS)
+Lien Web
+Fanorona Malagasy(VueJS)
+Projet [GG] IGGLIA3 N°43 ZAFINIAINA Herma PROSPER
