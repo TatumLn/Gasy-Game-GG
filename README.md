@@ -1,5 +1,24 @@
-# Gasy-Game-GG
-#Lien Web
-#Fanorona Malagasy(VueJS)
-#Projet [GG] IGGLIA3 N°43 ZAFINIAINA Herma PROSPER
-NB: Le jeu marche mais il manque l'integration des logiques.
+# fanorona-vuejs
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
