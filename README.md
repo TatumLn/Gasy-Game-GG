@@ -1,4 +1,7 @@
 # fanorona-vuejs
+#Lien Web: 
+#Projet TechJS IGGLIA3 N°44 ZAFINIAINA Herma PROSPER
+#NB:Le Jeu marche mais il manque l'integration des logiques .
 
 ## Project setup
 ```
