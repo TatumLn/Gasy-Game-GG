@@ -11,11 +11,11 @@
         <!-- Nom des Joueurs-->
         <div class="Nom1">
           <label for="Mpilalao1">Anaran'i Mpilalao 1</label>
-          <input type="text" id="Mpilalao1" v-model="Mpilalao1">
+          <input type="text" id="Mpilalao1" v-model="Mpilalao1" autocomplete="off">
         </div>
         <div class="Nom2">
           <label for="Mpilalao2">Anararan' i Mpilalao 2</label>
-          <input type="text" id="Mpilalao2" v-model="Mpilalao2">
+          <input type="text" id="Mpilalao2" v-model="Mpilalao2" autocomplete="off">
         </div>
         <div class="Size">
          <!-- Taille du plateau de jeu-->

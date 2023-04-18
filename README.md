@@ -1,6 +1,6 @@
 # fanorona-vuejs
-#Lien Web: 
-#Projet TechJS IGGLIA3 N°44 ZAFINIAINA Herma PROSPER
+#Lien Web: https://tatumln.github.io/Gasy-Game-GG/
+#Projet TechJS (VueJs) IGGLIA3 N°44 ZAFINIAINA Herma PROSPER
 #NB:Le Jeu marche mais il manque l'integration des logiques .
 
 ## Project setup
