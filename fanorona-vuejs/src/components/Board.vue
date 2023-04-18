@@ -13,7 +13,7 @@
       <!--Zone de jeu-->
       <div class="Zone-Jeu">
       <div class="board-row" v-for="(row, rowIndex) in board" :key="rowIndex">
-        <div class="board-cell" v-for="(cell, cellIndex) in row" :key="cellIndex" @click="Click(rowIndex, cellIndex); CapturerOuPas(rowIndex, cellIndex)">
+        <div class="board-cell" v-for="(cell, cellIndex) in row" :key="cellIndex" @click="Click(rowIndex, cellIndex)">
           <!--Pion du jeu-->
           <div v-if="cell === 'v'" class="pion vert" :class="{ selectionner: PionPosition && PionPosition.row === rowIndex && PionPosition.cell === cellIndex }"></div>
           <div v-if="cell === 'n'" class="pion noir" :class="{ selectionner: PionPosition && PionPosition.row === rowIndex && PionPosition.cell === cellIndex }"></div>
@@ -26,6 +26,8 @@
       <h6>Mpilalao 2:</h6>
       </div>
       <button class="btnAverina" @click="Reset"></button>
+      <br>
+      <h3>NB: Le Jeu marche mais il manque l'integration des logiques </h3>
     </div>
 </template>
   

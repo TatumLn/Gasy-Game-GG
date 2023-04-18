@@ -2,3 +2,4 @@
 #Lien Web
 #Fanorona Malagasy(VueJS)
 #Projet [GG] IGGLIA3 N°43 ZAFINIAINA Herma PROSPER
+NB: Le jeu marche mais il manque l'integration des logiques.
