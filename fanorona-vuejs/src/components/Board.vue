@@ -13,7 +13,7 @@
       <!--Zone de jeu-->
       <div class="Zone-Jeu">
       <div class="board-row" v-for="(row, rowIndex) in board" :key="rowIndex">
-        <div class="board-cell" v-for="(cell, cellIndex) in row" :key="cellIndex" @click="Click(rowIndex, cellIndex)">
+        <div class="board-cell" v-for="(cell, cellIndex) in row" :key="cellIndex" @click="Click(rowIndex, cellIndex); CapturerOuPas(rowIndex, cellIndex)">
           <!--Pion du jeu-->
           <div v-if="cell === 'v'" class="pion vert" :class="{ selectionner: PionPosition && PionPosition.row === rowIndex && PionPosition.cell === cellIndex }"></div>
           <div v-if="cell === 'n'" class="pion noir" :class="{ selectionner: PionPosition && PionPosition.row === rowIndex && PionPosition.cell === cellIndex }"></div>
@@ -32,7 +32,6 @@
 <script>
   export default {
     name: 'BoardPage',
-    //
     data() {
       return {
       Mpilalao1: '',
@@ -187,26 +186,35 @@
     }
   },
      // Logique des deplacements des pions
-  Click(rowIndex, cellIndex) {
-     // Récupère la cellule cliquée par l'utilisateur.
-    const clickedCell = this.board[rowIndex][cellIndex];
+     Click(rowIndex, cellIndex) {
+  // Récupère la cellule cliquée par l'utilisateur.
+  const clickedCell = this.board[rowIndex][cellIndex];
+
       // Si la cellule cliquée est vide.
-    if (!clickedCell) {
-      // Déplacer le pion sur la cellule cliquée.
-      if (this.PionPosition) {
-        this.board[rowIndex][cellIndex] = this.Pion;
-        this.board[this.PionPosition.row][this.PionPosition.cell] = '';
-        this.PionPosition = null;
-        // Change le joueur actuel
-        // Si le joueur actuel est "w" (blanc), le changer en "b" (noir) et vice versa
-        this.MpilalaoActuel = this.MpilalaoActuel === 'v' ? 'n' : 'v';
-      }
-    } else if (clickedCell === this.MpilalaoActuel) {
-      // Sélectionner le pion.
-      this.PionPosition = { row: rowIndex, cell: cellIndex }; // Stocke la position du pion sélectionné.
-      this.Pion = clickedCell; // Stocke le type du pion sélectionné.
-    }
-  },
+      if (!clickedCell) {
+        // Vérifier si le déplacement est valide.
+        if (this.PionPosition) {
+          const rowDiff = Math.abs(rowIndex - this.PionPosition.row);
+          const cellDiff = Math.abs(cellIndex - this.PionPosition.cell);
+          //Vérification de deplacements en horizontale et verticale
+          const isHorizontalOrVertical = rowDiff === 0 || cellDiff === 0;
+          // Vérification des deplacements en diagonale
+          const isDiagonal = rowDiff === cellDiff;
+          // Déplacer le pion sur la cellule cliquée.
+          if ((isHorizontalOrVertical || isDiagonal)) {
+            this.board[rowIndex][cellIndex] = this.Pion;
+            this.board[this.PionPosition.row][this.PionPosition.cell] = '';
+            this.PionPosition = null;
+            // Change le joueur actuel
+            // Si le joueur actuel est "v" (blanc), le changer en "n" (noir) et vice versa.
+            this.MpilalaoActuel = this.MpilalaoActuel === 'v' ? 'n' : 'v'; }
+                                }
+        } else if (clickedCell === this.MpilalaoActuel) {
+          // Sélectionner le pion.
+          this.PionPosition = { row: rowIndex, cell: cellIndex }; // Stocke la position du pion sélectionné.
+          this.Pion = clickedCell; // Stocke le type du pion sélectionné.
+        }
+      },
   //Reinitialiser le jeu 
   Reset() {
     switch(this.Karazany) {
@@ -217,6 +225,8 @@
           ['', '', ''],
           ['n', 'n', 'n']
         ];
+        //Joueur1 toujour en premier
+        this.MpilalaoActuel = 'v';
         break;
       //Pour le fanoron-dimy
       case 'Dimy':
@@ -227,6 +237,8 @@
           ['n', 'n', 'n', 'n', 'n'],
           ['n', 'n', 'n', 'n', 'n']
         ];
+         //Joueur1 toujour en premier
+         this.MpilalaoActuel = 'v';
         break;
       //Pour le fanoron-tsivy
       case 'Tsivy':
@@ -237,11 +249,13 @@
           ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n'],
           ['n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n']
         ];
+         //Joueur1 toujour en premier
+         this.MpilalaoActuel = 'v';
         break;
     }
   },
   }
-  
+
     }
 </script>
 
